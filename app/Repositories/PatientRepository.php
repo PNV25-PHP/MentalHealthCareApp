@@ -7,13 +7,21 @@ use Illuminate\Support\Facades\DB;
 
 class PatientRepository
 {
-    private string $tableName = "users";
+    private string $tableName = "patients";
 
     public function insert(Patient $patient)
     {
-        DB::insert(
-            "insert into $this->tableName (id, userId)",
-            [$patient->id, $patient->userid]
-        );
+        $sql = "INSERT INTO $this->tableName (ID, UserId) VALUES (?, ?)";
+        
+        // Truyền các giá trị vào placeholder
+        DB::insert($sql, [
+            $patient->getId(),
+            $patient->getUserId(),
+           
+        ]);
     }
+
+    
 }
+
+

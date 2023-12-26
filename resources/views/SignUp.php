@@ -10,7 +10,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Poppins&display=swap');
     </style>
-    <link rel="stylesheet" href="../../bootstrap/styles/SignUp.css">
+<!-- <link rel="stylesheet" href="../../bootstrap/styles/SignUp.css"> -->
+    <link rel="stylesheet" href="{{ asset('../../bootstrap/styles/SignUp.css'}}">
     <title>Register - page</title>
 </head>
 

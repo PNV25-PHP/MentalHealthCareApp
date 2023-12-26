@@ -8,13 +8,13 @@ class SignUpReq
 {
     public string $email;
     public string $password;
-    public string $fullName;
+    public string $fullname;
 
     public function __construct(Request $req)
     {
         $this->email = $req->input("email");
         $this->password = $req->input("password");
-        $this->fullName = $req->input("fullName");
+        $this->fullname = $req->input("fullname");
     }
 
     public function validate()

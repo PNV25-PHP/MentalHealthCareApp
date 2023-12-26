@@ -15,4 +15,9 @@ class Patient extends BaseModel
         parent::__construct();
         $this->userid = $userid;
     }
+    public function getUserId(): string
+    {
+        return $this->userid;
+    }
+
 }
