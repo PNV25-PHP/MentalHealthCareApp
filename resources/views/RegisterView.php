@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Poppins&display=swap');
     </style>
-    <?php require_once './MentalHealthCareApp/bootstrap/styles/RegisterCSS.php'; ?>
+    <?php require_once '../MentalHealthCareApp/bootstrap/styles/RegisterCSS.php'; ?>
     <title>Register - page</title>
 </head>
 
@@ -44,9 +44,9 @@
     </div>
 
     <!-- require script -->
-    <?php require './MentalHealthCareApp/bootstrap/components/Button.php' ?>
-    <?php require './MentalHealthCareApp/bootstrap/components/Button2.php' ?>
-    <?php require './MentalHealthCareApp/bootstrap/components/Input.php' ?>
+    <?php require '../MentalHealthCareApp/bootstrap/components/Button.php' ?>
+    <?php require '../MentalHealthCareApp/bootstrap/components/Button2.php' ?>
+    <?php require '../MentalHealthCareApp/bootstrap/components/Input.php' ?>
     <script>
         Button2
             .new()

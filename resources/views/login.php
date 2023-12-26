@@ -39,8 +39,8 @@
         </div>
     </div>
 </body>
-<?php require './MentalHealthCareApp/bootstrap/components/Button.php' ?>
-<?php require './MentalHealthCareApp/bootstrap/components/Input.php' ?>
+<?php require '../MentalHealthCareApp/bootstrap/components/Button.php' ?>
+<?php require '../MentalHealthCareApp/bootstrap/components/Input.php' ?>
 <script>
     Button
         .new()
