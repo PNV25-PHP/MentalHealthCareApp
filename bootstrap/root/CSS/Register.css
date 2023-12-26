@@ -24,7 +24,7 @@
 #form {
     display: grid;
     width: 60%;
-    margin: 0% 15%;
+    margin: 0% 15%; 
     gap: 5px;
 }
 
@@ -62,9 +62,9 @@ div>input{
 
 
 p>a{
-    align-items: center;
+    align-items: center; 
     justify-content: center;
-
+    
     color: #1e40af;
     font-style: italic;
     margin-bottom: 0.5rem;
@@ -149,7 +149,7 @@ img {
     }
     div>label{
         width: 126%;
-    }
+    } 
     div>input{
         width: 175%;
         height: 40px;
@@ -196,7 +196,7 @@ img {
     }
     div>label{
         width: 126%;
-    }
+    } 
     div>input{
         width: 175%;
         height: 40px;
@@ -242,7 +242,7 @@ img {
     }
     div>label{
         width: 126%;
-    }
+    } 
     div>input{
         width: 175%;
         height: 40px;
@@ -302,7 +302,7 @@ img {
     }
     div>label{
         width: 126%;
-    }
+    } 
     div>input{
         width: 175%;
         height: 40px;
@@ -332,3 +332,8 @@ img {
         margin: 49% 4px;
     }
 }
+
+
+
+
+

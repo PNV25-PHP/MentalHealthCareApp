@@ -1,5 +1,6 @@
-class Input
-{
+<script lang="type/javascript">
+    class Input
+    {
     #teID
     #name
     #Placeholder = " "
@@ -98,3 +99,5 @@ class Input
             .appendChild(this.#initHtml())
     }
 }
+
+</script>
