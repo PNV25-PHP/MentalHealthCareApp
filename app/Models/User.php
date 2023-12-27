@@ -9,27 +9,27 @@ class User extends BaseModel
     private string $email;
     private string $password;
     private string $fullname;
-   
-    private string $address; 
-    private string $phone;
-    private string $url_image; 
 
- 
+    private string $address;
+    private string $phone;
+    private string $url_image;
+
+
     public function __construct(
         Role $role,
         string $email,
         string $password,
         string $fullname,
         string $phone = '',
-        string $address = '', 
-        string $url_image = '' 
+        string $address = '',
+        string $url_image = ''
     ) {
         parent::__construct();
         $this->role = $role;
         $this->email = $email;
         $this->password = $password;
         $this->fullname = $fullname;
-        
+
         $this->phone = $phone;
         $this->address = $address;
         $this->url_image = $url_image;
@@ -61,9 +61,6 @@ public function getRole(): Role
         return $this->fullname;
     }
 
-   
-
- 
     public function getPhone(): string
     {
         return $this->phone;

@@ -13,8 +13,8 @@
 |
 */
 
-use Illuminate\Support\Facades\DB;
 
+<<<<<<< HEAD
  DB::connection()->getPdo();
 
 // try {
@@ -22,6 +22,10 @@ use Illuminate\Support\Facades\DB;
 // } catch (\Exception $e) {
 //     die("Không thể kết nối đến cơ sở dữ liệu: " . $e->getMessage());
 // }
+=======
+>>>>>>> 4cf75e1e372076e5d80f4d87e004e2a0a3902d1a
 
 $router->get('/patient/sign-up', 'Patient\SignUpController@index');
+$router->get('/patient/login', 'Patient\loginController@index');
 $router->post('/patient/sign-up', 'Patient\SignUpController@signUp');
+$router->post('/patient/login', 'Patient\loginController@login');

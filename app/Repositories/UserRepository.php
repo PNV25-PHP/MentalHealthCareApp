@@ -20,7 +20,7 @@ class UserRepository
     public function insert(User $user)
     {
         $sql = "INSERT INTO $this->tableName (ID, Role, FullName, Email, Password) VALUES (?, ?, ?, ?, ?)";
-        
+
         // Truyền các giá trị vào placeholder
         DB::insert($sql, [
             $user->getId(),
@@ -31,7 +31,12 @@ class UserRepository
         ]);
     }
 
-    
+    public function selectAll()
+    {
+        $users = DB::table('users')->get();
+
+        return $users;
+    }
 
     public function update(User $model)
     {
@@ -41,5 +46,17 @@ class UserRepository
     public function delete(string $id)
     {
         // TODO: Implement Delete() method.
+    }
+
+    public function findByEmailAndPassword($email, $password)
+    {
+        $result = DB::select("SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1", [$email, $password]);
+
+        if (!empty($result)) {
+            $user = $result[0];
+            return $user;
+        }
+
+        return null;
     }
 }

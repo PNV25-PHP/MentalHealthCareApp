@@ -20,11 +20,7 @@ abstract class BaseModel
     }
 
 
-    // public function __construct()
-    // {
-    //     $this->id = "ID" . time();
-    // }
-
+   
     public function getId(): string
     {
         return $this->id;
