@@ -4,7 +4,7 @@ namespace App\Dtos\Patient;
 
 use Illuminate\Http\Request;
 
-class LoginRequest
+class LogInReq
 {
     private string $email;
     private string $password;

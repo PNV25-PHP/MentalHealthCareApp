@@ -1,6 +1,6 @@
 create DATABASE MVC_Project;
 USE MVC_Project;
-
+ALTER DATABASE MVC_Project CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE TABLE users (
   Id varchar(255) Unique primary key,
   Role ENUM('admin', 'doctor', 'patient') NOT NULL,

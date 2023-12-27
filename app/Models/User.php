@@ -73,9 +73,6 @@ public function getRole(): string
         return $this->fullname;
     }
 
-   
-
- 
     public function getPhone(): string
     {
         return $this->phone;

@@ -26,3 +26,4 @@ try {
 
 $router->get('/patient/sign-up', 'Patient\SignUpController@index');
 $router->post('/patient/sign-up', 'Patient\SignUpController@signUp');
+$router->post('/patient/login', 'Patient\loginController@login');
