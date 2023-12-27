@@ -1,56 +1,37 @@
 <?php
 
-namespace App\Models;
+namespace App\Dtos\Patient;
 
-class User extends BaseModel
+use Illuminate\Http\Request;
+
+class LoginRes
 {
-    private Role $role;
-    private string $email;
-    private string $password;
-    private string $fullname;
-    private string $address;
-    private string $phone;
-    private string $url_image;
-
+    public string $id;
+    public string $role;
+    public string $email;
+    public string $password;
+    public string $fullname;
+    public string $address;
+    public string $phone;
+    public string $url_image;
 
     public function __construct(
-        Role $role,
+        string $id,
+        string $role,
         string $email,
-        string $password,
         string $fullname,
         string $phone = '',
         string $address = '',
         string $url_image = ''
     ) {
-        parent::__construct();
+        $this->id = $id;
         $this->role = $role;
         $this->email = $email;
-        $this->password = $password;
         $this->fullname = $fullname;
-
         $this->phone = $phone;
         $this->address = $address;
         $this->url_image = $url_image;
     }
-
-    //     public function getRole(): Role
-    //     {
-    //     $role = Role::Doctor;
-    // $roleString = $role->getValue();
-
-    // // Bây giờ bạn có thể sử dụng $roleString nơi mà một chuỗi được yêu cầu
-
-    //     }
-    public function getRole(): string
-    {
-        $role = Role::Doctor;
-        $roleString = $role->getValue();
-
-        // Bạn có thể thực hiện bất kỳ logic xử lý nào khác tại đây nếu cần thiết
-
-        return $roleString;
-    }
-
     public function getEmail(): string
     {
         return $this->email;

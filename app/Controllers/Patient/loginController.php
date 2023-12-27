@@ -3,15 +3,10 @@
 namespace App\Controllers\Patient;
 
 use App\Dtos\Patient\LogInReq;
-
-use App\Models\Patient;
-use App\Models\Role;
-use App\Models\User;
+use App\Dtos\Patient\LogInRes;
 use App\Repositories\PatientRepository;
 use App\Repositories\UserRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Laravel\Lumen\Routing\Controller;
 
 class loginController extends Controller
@@ -38,21 +33,23 @@ class loginController extends Controller
         $password = $loginRequest->getPassword();
 
         $userRepository = new UserRepository();
-        $user = $userRepository->findByEmailAndPassword($email, $password);
-
-        if ($user) {
-            $userRole = $user->Role;
-
+        $user = $userRepository->findByEmail($email);
+        if ($user == null) {
             return response()->json([
-                'message' => 'User found',
+                'message' => 'Email not found',
                 'email' => $email,
-                'role' => $userRole,
-            ]);
+            ], 404);
+        }
+
+        if ($user->getPassword() != $password) {
+            return response()->json([
+                'message' => 'User not found or invalid credentials',
+            ], 401);
         }
 
         return response()->json([
-            'message' => 'User not found or invalid credentials',
-            'email' => $email,
-        ], 404);
+            'message' => 'User found',
+            'payload' => new LogInRes($user->getId(), $user->getRole(), $user->getEmail(), $user->getFullname(),  $user->getPhone(), $user->getAddress(), $user->getUrlImage())
+        ], 200);
     }
 }

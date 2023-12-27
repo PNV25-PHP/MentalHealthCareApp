@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -48,13 +49,20 @@ class UserRepository
         // TODO: Implement Delete() method.
     }
 
-    public function findByEmailAndPassword($email, $password)
+    public function findByEmail($email)
     {
-        $result = DB::select("SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1", [$email, $password]);
+        $result = DB::select("SELECT * FROM users WHERE email = ? LIMIT 1", [$email]);
 
         if (!empty($result)) {
-            $user = $result[0];
-            return $user;
+            $newUser = $result[0];
+            if ($newUser->Role == "Admin") {
+                $role = Role::Admin;
+            } elseif ($newUser->Role == "Doctor") {
+                $role = Role::Doctor;
+            } else {
+                $role = Role::Patient;
+            }
+            return new User($role, $newUser->Email, $newUser->Password, $newUser->FullName, $newUser->Phone, $newUser->Address, $newUser->Url_Image);
         }
 
         return null;
