@@ -35,23 +35,11 @@ class User extends BaseModel
         $this->url_image = $url_image;
     }
 
-//     public function getRole(): Role
-//     {
-//     $role = Role::Doctor;
-// $roleString = $role->getValue();
 
-// // Bây giờ bạn có thể sử dụng $roleString nơi mà một chuỗi được yêu cầu
-
-//     }
-public function getRole(): string
-{
-    $role = Role::Doctor;
-    $roleString = $role->getValue();
-
-    // Bạn có thể thực hiện bất kỳ logic xử lý nào khác tại đây nếu cần thiết
-
-    return $roleString;
-}
+public function getRole(): Role
+    {
+        return $this->role;
+    }
 
     public function getEmail(): string
     {
