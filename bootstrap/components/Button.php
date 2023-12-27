@@ -1,4 +1,5 @@
-class Button
+<script>
+    class Button
 {
     #label
     #onClick
@@ -41,3 +42,5 @@ class Button
             .appendChild(this.#initHtml())
     }
 }
+
+</script>

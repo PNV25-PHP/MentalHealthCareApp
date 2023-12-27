@@ -1,4 +1,5 @@
-class Input
+<script>
+    class Input
 {
     #teID
     #name
@@ -98,3 +99,5 @@ class Input
             .appendChild(this.#initHtml())
     }
 }
+
+</script>
