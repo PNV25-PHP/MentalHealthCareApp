@@ -27,7 +27,7 @@ class loginController extends Controller
 
     public function index()
     {
-        return view('#');
+        return view('login');
     }
 
     public function login(Request $req)

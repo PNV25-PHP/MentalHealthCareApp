@@ -9,49 +9,49 @@ class User extends BaseModel
     private string $email;
     private string $password;
     private string $fullname;
-   
-    private string $address; 
-    private string $phone;
-    private string $url_image; 
 
- 
+    private string $address;
+    private string $phone;
+    private string $url_image;
+
+
     public function __construct(
         Role $role,
         string $email,
         string $password,
         string $fullname,
         string $phone = '',
-        string $address = '', 
-        string $url_image = '' 
+        string $address = '',
+        string $url_image = ''
     ) {
         parent::__construct();
         $this->role = $role;
         $this->email = $email;
         $this->password = $password;
         $this->fullname = $fullname;
-        
+
         $this->phone = $phone;
         $this->address = $address;
         $this->url_image = $url_image;
     }
 
-//     public function getRole(): Role
-//     {
-//     $role = Role::Doctor;
-// $roleString = $role->getValue();
+    //     public function getRole(): Role
+    //     {
+    //     $role = Role::Doctor;
+    // $roleString = $role->getValue();
 
-// // Bây giờ bạn có thể sử dụng $roleString nơi mà một chuỗi được yêu cầu
+    // // Bây giờ bạn có thể sử dụng $roleString nơi mà một chuỗi được yêu cầu
 
-//     }
-public function getRole(): string
-{
-    $role = Role::Doctor;
-    $roleString = $role->getValue();
+    //     }
+    public function getRole(): string
+    {
+        $role = Role::Doctor;
+        $roleString = $role->getValue();
 
-    // Bạn có thể thực hiện bất kỳ logic xử lý nào khác tại đây nếu cần thiết
+        // Bạn có thể thực hiện bất kỳ logic xử lý nào khác tại đây nếu cần thiết
 
-    return $roleString;
-}
+        return $roleString;
+    }
 
     public function getEmail(): string
     {

@@ -13,17 +13,9 @@
 |
 */
 
-use Illuminate\Support\Facades\DB;
 
-// DB::connection()->getPdo();
-
-try {
-    DB::connection()->getPdo();
-    echo "Kết nối đến cơ sở dữ liệu thành công!";
-} catch (\Exception $e) {
-    die("Không thể kết nối đến cơ sở dữ liệu: " . $e->getMessage());
-}
 
 $router->get('/patient/sign-up', 'Patient\SignUpController@index');
+$router->get('/patient/login', 'Patient\loginController@index');
 $router->post('/patient/sign-up', 'Patient\SignUpController@signUp');
 $router->post('/patient/login', 'Patient\loginController@login');
