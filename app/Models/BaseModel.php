@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use DateTime;
-use DateTimeZone;
 
 abstract class BaseModel
 {
@@ -16,11 +15,11 @@ abstract class BaseModel
     public function __construct()
     {
         $this->id = date('Y-m-d H:i:s');
-        $this->createdAt = new DateTime('now', new DateTimeZone('Europe/London'));
+        $this->createdAt = new DateTime('now');
     }
 
 
-   
+
     public function getId(): string
     {
         return $this->id;

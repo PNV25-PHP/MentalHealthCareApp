@@ -42,14 +42,6 @@
 <?php require  dirname(__DIR__) . "/views/components/Button.php" ?>
 <?php require dirname(__DIR__) . "/views/components/Input.php" ?>
 <script>
-    Button
-        .new()
-        .setOnClick(() => {
-            console.log("abc")
-        })
-        .setCustomClass("mt-10 mb-3 px-1 py-1 text-white flex justify-center items-center")
-        .setLabel("Tiếp tục")
-        .appendTo("button")
     Input
         .new()
         .setID("email")
@@ -75,6 +67,34 @@
         .setLabel("password")
         // appendTo
         .appendTo("inputPassword")
+
+    const signInBtn = Button.new()
+    signInBtn
+        .setOnClick(() => {
+            fetch("http://localhost:8080/patient/login")
+                .then((res) => res.json())
+                .then((res) => {
+                    if (res.data.payload.role == 'Admin') {
+                        // redirect (http://localhost:8080/admin/login)
+                    } else if (res.data.payload.role == 'Doctor') {
+
+                    }
+
+                    // login success
+                    console.log(res)
+                })
+                .catch((error) => {
+                    // login failed
+                    console.log(error)
+                    if (error....code = 400) {
+                        alert("validation error")
+                    }
+                })
+        })
+        .setCustomClass("mt-10 mb-3 px-1 py-1 text-white flex justify-center items-center")
+        .setLabel("Tiếp tục")
+        .appendTo("button")
+
 </script>
 
 </html>

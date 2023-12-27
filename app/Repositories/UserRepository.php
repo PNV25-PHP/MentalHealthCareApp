@@ -48,13 +48,13 @@ class UserRepository
         // TODO: Implement Delete() method.
     }
 
-    public function findByEmailAndPassword($email, $password)
+    public function findByEmail($email): User | null
     {
-        $result = DB::select("SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1", [$email, $password]);
+        $result = DB::select("SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1", [$email]);
 
         if (!empty($result)) {
-            $user = $result[0];
-            return $user;
+            $userResult = $result[0];
+            return new User($userResult->role, ....);
         }
 
         return null;

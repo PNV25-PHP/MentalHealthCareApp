@@ -38,21 +38,23 @@ class loginController extends Controller
         $password = $loginRequest->getPassword();
 
         $userRepository = new UserRepository();
-        $user = $userRepository->findByEmailAndPassword($email, $password);
+        $user = $userRepository->findByEmail($email);
 
-        if ($user) {
-            $userRole = $user->Role;
-
+        if ($user == null) {
             return response()->json([
-                'message' => 'User found',
-                'email' => $email,
-                'role' => $userRole,
-            ]);
+                'message' => 'Email not found',
+            ], 404);
+        }
+
+        if ($user->getPassword() != $password) {
+            return response()->json([
+                'message' => 'User not found or invalid credentials',
+            ], 401);
         }
 
         return response()->json([
-            'message' => 'User not found or invalid credentials',
-            'email' => $email,
-        ], 404);
+            'message' => 'User found',
+            'payload' => new LoginRes($user.....)
+        ], 200);
     }
 }

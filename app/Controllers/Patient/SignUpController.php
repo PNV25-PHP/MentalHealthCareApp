@@ -3,6 +3,7 @@
 namespace App\Controllers\Patient;
 
 use App\Dtos\Patient\SignUpReq;
+use App\Dtos\Patient\SignUpRes;
 use App\Models\Patient;
 use App\Models\Role;
 use App\Models\User;
@@ -31,10 +32,17 @@ class SignUpController extends Controller
 
     public function signUp(Request $req): JsonResponse
     {
-        $signUpReq = new SignUpReq($req);
-        // $signUpReq->validate();
+        $signUpReq = new SignUpReq($req, $this->userRepository);
 
-       $newUser = new User(Role::Patient, $signUpReq->email, $signUpReq->password, $signUpReq->fullname);
+        $error = $signUpReq->validate();
+        if ($error != null) {
+            return response()->json([
+                'message' => 'validation error',
+                'error' => $error,
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $newUser = new User(Role::Patient, $signUpReq->email, $signUpReq->password, $signUpReq->fullname);
         $newPatient = new Patient($newUser->id);
 
         $this->userRepository->insert($newUser);
@@ -42,9 +50,7 @@ class SignUpController extends Controller
 
         return response()->json([
             'message' => 'Đăng kí thành công',
-            'data' => [
-                'user' => $newUser
-            ],
+            'payload' => new SignUpRes($newUser.....)
         ], Response::HTTP_CREATED);
     }
 }
