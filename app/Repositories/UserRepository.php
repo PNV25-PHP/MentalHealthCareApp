@@ -25,8 +25,8 @@ class UserRepository
         // Truyền các giá trị vào placeholder
         DB::insert($sql, [
             $user->getId(),
-            $user->getRole(),
-            $user->getFullname(),
+            $user->getRole()->getValue(),
+            $user ->getFullname(),
             $user->getEmail(),
             $user->getPassword(),
         ]);

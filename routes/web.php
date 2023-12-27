@@ -14,6 +14,16 @@
 */
 
 
+<<<<<<< HEAD
+ DB::connection()->getPdo();
+
+// try {
+//     DB::connection()->getPdo();
+// } catch (\Exception $e) {
+//     die("Không thể kết nối đến cơ sở dữ liệu: " . $e->getMessage());
+// }
+=======
+>>>>>>> 4cf75e1e372076e5d80f4d87e004e2a0a3902d1a
 
 $router->get('/patient/sign-up', 'Patient\SignUpController@index');
 $router->get('/patient/login', 'Patient\loginController@index');
