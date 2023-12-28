@@ -12,7 +12,7 @@
             <form action="" method="post" id="form">
                 <div id="inputEmail"></div>
                 <div id="inputPassword"></div>
-                <div id="button"></div>
+                <button id="button" onclick= onSubmit()></button>
             </form>
 
         </div>
@@ -58,7 +58,29 @@
     Button
         .new()
         .setOnClick(() => {
-            console.log("abc")
+            function onSubmit() {
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                
+                fetch("http://localhost:8000/commom/login", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            email,
+                            password,
+                        }),
+                    })
+                    .then((res) => res.json())
+                    .then((res) => {
+                        if (res.data.status == 200) {
+                            window.location.href = "http://localhost:8000/patient/sign-up";
+                        } else {
+                            // Xử lý lỗi
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            }
         })
         .setCustomClass("mt-10 mb-3 px-1 py-1 text-white flex justify-center items-center")
         .setLabel("Tiếp tục")
