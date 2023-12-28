@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers\Admin;
 use App\Repositories\AdminRepositorry;
+use App\Repositories\DoctorRepository;
 use App\Repositories\PatientRepository;
 use App\Repositories\UserRepository;
 use Laravel\Lumen\Routing\Controller;
@@ -16,7 +17,7 @@ class AdminController extends Controller{
     }
 
     public function index(){
-        return view();
+        return view("#");
     }
 
     public function viewPatient(){
@@ -25,5 +26,17 @@ class AdminController extends Controller{
         var_dump($result);
         return $result;
     }
+
+    public function viewDoctor(){
+        $query = new DoctorRepository();
+        $result = $query->selectAll();
+        var_dump($result);
+        return $result;
+    }
+
+    public function viewBooking(){
+
+    }
+
 }
 ?>
