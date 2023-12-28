@@ -13,7 +13,7 @@
         const ele = document.createElement("button");
 
         ele.setAttribute("type", "button");
-        ele.setAttribute("class", "py-2 w-full flex bg-blue-900 border border-2 rounded-lg border-blue-600 " + this.#customClass);
+        ele.setAttribute("class", "py-2 mb-20 w-full flex bg-blue-900 border border-2 rounded-lg border-blue-600 " + this.#customClass);
 
         ele.onclick = this.#onClick
         ele.innerHTML = this.#label
