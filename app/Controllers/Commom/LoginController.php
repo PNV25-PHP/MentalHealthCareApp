@@ -2,8 +2,8 @@
 
 namespace App\Controllers\Commom;
 
-use App\Dtos\Patient\LogInReq;
-use App\Dtos\Patient\LogInRes;
+use App\Dtos\Commom\LogInReq;
+use App\Dtos\Commom\LogInRes;
 use App\Repositories\PatientRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;

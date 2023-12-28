@@ -34,7 +34,7 @@ class SignUpController extends Controller
         $signUpReq = new SignUpReq($req);
         // $signUpReq->validate();
 
-       $newUser = new User(Role::Patient, $signUpReq->email, $signUpReq->password, $signUpReq->fullname);
+        $newUser = new User(Role::Patient, $signUpReq->email, $signUpReq->password, $signUpReq->fullname);
         $newPatient = new Patient($newUser->id);
 
         $this->userRepository->insert($newUser);

@@ -19,3 +19,5 @@ $router->post('/patient/sign-up', 'Patient\SignUpController@signUp');
 $router->post('/commom/login', 'Commom\LoginController@login');
 $router->get('/patient/booking', 'Patient\BookingController@index');
 $router->post('/patient/booking', 'Patient\BookingController@dataDoctors');
+$router->get('/patient/profile', 'Patient\ProFileController@index');
+$router->post('/patient/profile', 'Patient\ProFileController@updatePatient');

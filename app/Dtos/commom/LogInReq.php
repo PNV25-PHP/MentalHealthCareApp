@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dtos\Patient;
+namespace App\Dtos\Commom;
 
 use Illuminate\Http\Request;
 

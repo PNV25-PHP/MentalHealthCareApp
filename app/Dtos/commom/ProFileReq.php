@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Dtos\Patient;
+namespace App\Dtos\Commom;
 
 use Illuminate\Http\Request;
 
-class LoginRes
+class ProFileReq
 {
     public string $id;
     public string $role;
@@ -16,21 +16,16 @@ class LoginRes
     public string $url_image;
 
     public function __construct(
-        string $id,
-        string $role,
-        string $email,
-        string $fullname,
-        string $phone = '',
-        string $address = '',
-        string $url_image = ''
+        Request $request
     ) {
-        $this->id = $id;
-        $this->role = $role;
-        $this->email = $email;
-        $this->fullname = $fullname;
-        $this->phone = $phone;
-        $this->address = $address;
-        $this->url_image = $url_image;
+        $this->id = $request->input("id");
+        $this->role = $request->input("role");
+        $this->email = $request->input("email");
+        $this->password = $request->input("password");
+        $this->fullname = $request->input("fullname");
+        $this->phone = $request->input("phone");
+        $this->address = $request->input("address");
+        $this->url_image = $request->input("url_image");
     }
     public function getEmail(): string
     {
