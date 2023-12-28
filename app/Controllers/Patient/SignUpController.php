@@ -32,9 +32,13 @@ class SignUpController extends Controller
     public function signUp(Request $req): JsonResponse
     {
         $signUpReq = new SignUpReq($req);
-        // $signUpReq->validate();
+        $validationErrors = $signUpReq->validate();
 
-       $newUser = new User(Role::Patient, $signUpReq->email, $signUpReq->password, $signUpReq->fullname);
+        if ($validationErrors) {
+            return response()->json(['errors' => $validationErrors], Response::HTTP_BAD_REQUEST);
+        }
+
+        $newUser = new User(Role::Patient, $signUpReq->email, $signUpReq->password, $signUpReq->fullname);
         $newPatient = new Patient($newUser->id);
 
         $this->userRepository->insert($newUser);

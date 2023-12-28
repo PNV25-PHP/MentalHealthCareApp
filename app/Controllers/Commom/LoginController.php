@@ -28,7 +28,7 @@ class loginController extends Controller
     public function login(Request $req)
     {
         $loginRequest = new LogInReq($req);
-
+        
         $email = $loginRequest->getEmail();
         $password = $loginRequest->getPassword();
 
