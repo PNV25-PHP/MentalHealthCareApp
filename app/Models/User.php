@@ -88,4 +88,6 @@ class User extends BaseModel
     {
         $this->url_image = $url_image;
     }
+
+    
 }

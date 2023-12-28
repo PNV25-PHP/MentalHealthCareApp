@@ -21,3 +21,5 @@ $router->get('/patient/booking', 'Patient\BookingController@index');
 $router->post('/patient/booking', 'Patient\BookingController@dataDoctors');
 $router->get('/patient/profile', 'Patient\ProFileController@index');
 $router->post('/patient/profile', 'Patient\ProFileController@updatePatient');
+$router->get('/admin/addDoctor', 'Admin\AdminController@addNewDoctor');
+
