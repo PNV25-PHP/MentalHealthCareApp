@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Patient;
+namespace App\Controllers\Commom;
 
 use App\Dtos\Patient\LogInReq;
 use App\Dtos\Patient\LogInRes;

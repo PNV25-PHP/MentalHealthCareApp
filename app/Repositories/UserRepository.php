@@ -34,7 +34,7 @@ class UserRepository
 
     public function selectAll()
     {
-        $users = DB::table('users')->get();
+        $users = "SELECT * FROM users";
 
         return $users;
     }

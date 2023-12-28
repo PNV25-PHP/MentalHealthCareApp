@@ -2,29 +2,28 @@
 
 namespace App\Repositories;
 
-use App\Models\Patient;
+use App\Models\Doctor;
 use Illuminate\Support\Facades\DB;
 
-class PatientRepository
+class DoctorRepository
 {
     private string $tableName = "patients";
 
-    public function insert(Patient $patient)
+    public function insert(Doctor $doctor)
     {
         $sql = "INSERT INTO $this->tableName (ID, UserId) VALUES (?, ?)";
 
         // Truyền các giá trị vào placeholder
         DB::insert($sql, [
-            $patient->getId(),
-            $patient->getUserId(),
+            $doctor->getId(),
+            $doctor->getUserId(),
 
         ]);
     }
-
     public function selectAll()
     {
-        $patients = "SELECT * FROM patients";
-
-        return $patients;
+        $doctors = DB::select("SELECT * FROM doctors");
+        return $doctors;
     }
+    
 }
