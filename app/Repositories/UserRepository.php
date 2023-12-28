@@ -26,7 +26,7 @@ class UserRepository
         DB::insert($sql, [
             $user->getId(),
             $user->getRole()->getValue(),
-            $user ->getFullname(),
+            $user->getFullname(),
             $user->getEmail(),
             $user->getPassword(),
         ]);
@@ -62,7 +62,7 @@ class UserRepository
             } else {
                 $role = Role::Patient;
             }
-            return new User($role, $newUser->Email, $newUser->Password, $newUser->FullName, $newUser->Phone, $newUser->Address, $newUser->Url_Image);
+            return new User($role, $newUser->Email, $newUser->Password, $newUser->FullName, $newUser->Phone == null ? "" : $newUser->Phone, $newUser->Address == null ? "" : $newUser->Address, $newUser->Url_Image == null ? "" : $newUser->Url_Image);
         }
 
         return null;

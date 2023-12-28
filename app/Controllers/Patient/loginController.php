@@ -34,6 +34,7 @@ class loginController extends Controller
 
         $userRepository = new UserRepository();
         $user = $userRepository->findByEmail($email);
+
         if ($user == null) {
             return response()->json([
                 'message' => 'Email not found',
@@ -49,7 +50,7 @@ class loginController extends Controller
 
         return response()->json([
             'message' => 'User found',
-            'payload' => new LogInRes($user->getId(), $user->getRole(), $user->getEmail(), $user->getFullname(),  $user->getPhone(), $user->getAddress(), $user->getUrlImage())
+            'payload' => new LogInRes($user->getId(), $user->getRole()->getValue(), $user->getEmail(), $user->getFullname(),  $user->getPhone(), $user->getAddress(), $user->getUrlImage())
         ], 200);
     }
 }

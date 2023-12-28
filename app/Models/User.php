@@ -34,7 +34,7 @@ class User extends BaseModel
     }
 
 
-public function getRole(): Role
+    public function getRole(): Role
     {
         return $this->role;
     }
