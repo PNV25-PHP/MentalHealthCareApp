@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\Admin;
 use Illuminate\Support\Facades\DB;
 
-class DoctorRepositorry
+class AdminRepositorry
 {
     private string $tableName = "patients";
 

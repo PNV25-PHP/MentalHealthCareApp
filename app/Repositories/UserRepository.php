@@ -51,7 +51,9 @@ class UserRepository
 
     public function findByEmail($email)
     {
-        $result = DB::select("SELECT * FROM users WHERE email = ? LIMIT 1", [$email]);
+        $result = DB::select
+        ("SELECT * FROM users 
+        WHERE email = ? LIMIT 1", [$email]);
 
         if (!empty($result)) {
             $newUser = $result[0];
@@ -62,7 +64,13 @@ class UserRepository
             } else {
                 $role = Role::Patient;
             }
-            return new User($role, $newUser->Email, $newUser->Password, $newUser->FullName, $newUser->Phone == null ? "" : $newUser->Phone, $newUser->Address == null ? "" : $newUser->Address, $newUser->Url_Image == null ? "" : $newUser->Url_Image);
+            return new User($role, 
+            $newUser->Email, 
+            $newUser->Password, 
+            $newUser->FullName, 
+            $newUser->Phone == null ? "" : $newUser->Phone, 
+            $newUser->Address == null ? "" : $newUser->Address, 
+            $newUser->Url_Image == null ? "" : $newUser->Url_Image);
         }
 
         return null;

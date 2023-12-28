@@ -101,4 +101,4 @@
         .setLabel("Đăng ký")
         .appendTo("button")
 </script>
-<
+<?php include_once '../../pages/common/footer.php' ?>
